@@ -16,7 +16,7 @@ npm run start
 
 ## Running under nodemon
 ```
-nodemon src/app.js -e js,hbs
+npm run dev
 ```
 
 ## deploy to heroku
