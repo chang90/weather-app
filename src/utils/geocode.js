@@ -1,7 +1,6 @@
 const fetch = require('node-fetch');
 
 const geocode = (address, callback)=> {
-  console.log(process.env.GEOCODE_TOKEN)
   urlGeo = `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(address)}.json?access_token=${process.env.GEOCODE_TOKEN}`
   fetch(urlGeo, {
     method: 'get',

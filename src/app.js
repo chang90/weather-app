@@ -4,7 +4,8 @@ const hbs = require('hbs')
 const geocode = require('./utils/geocode.js')
 const forecast = require('./utils/forecast.js')
 
-const app = express()
+const app = express();
+const port = process.env.PORT || 3000;
 
 // Define paths for Express config
 const publicDirectoryPath = path.join(__dirname, '../public')
@@ -61,7 +62,6 @@ app.get('/weather', (req, res) => {
         error
       })
     }
-    console.log(`Lat: ${lat}, Long: ${lon}`);
     forecast(lat, lon, (error, forecastData) => {
       if (error) {
         return res.send({
@@ -112,6 +112,6 @@ app.get('*', (req, res) => {
   })
 })
 
-app.listen(3000, () => {
-  console.log('Sever is up')
+app.listen(port, () => {
+  console.log(`Sever is up in port ${port}`)
 })
